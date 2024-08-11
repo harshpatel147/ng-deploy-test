@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "prebuild": "node generate-random-color.js",
+    "prebuild": "npm version major && node generate-random-color.js",
     "build": "ng build",
     "buildDeployGit": "ng build --output-path docs --base-href /ng-deploy-test/",
     "custom-build-deploy": "npm run prebuild & npm run buildDeployGit",
