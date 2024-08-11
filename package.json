@@ -1,10 +1,10 @@
 {
   "name": "ng-deploy-test",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "prebuild": "npm version major && node generate-random-color.js",
+    "prebuild": "node generate-random-color.js",
     "build": "ng build",
     "buildDeployGit": "ng build --output-path docs --base-href /ng-deploy-test/",
     "custom-build-deploy": "npm run prebuild & npm run buildDeployGit",
