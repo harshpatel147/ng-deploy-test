@@ -1,13 +1,12 @@
-<nav class="navbar bg-body-tertiary fixed-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Offcanvas navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-            aria-controls="offcanvasNavbar" aria-label="Toggle navigation"
-            (click)="open(content)">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<nav class="navbar navbar-dark bg-dark fixed-top">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="#">Offcanvas navbar</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+			aria-controls="offcanvasNavbar" aria-label="Toggle navigation" (click)="open(content)">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-    </div>
+	</div>
 </nav>
 
 <ng-template #content let-offcanvas>
@@ -16,24 +15,34 @@
 		<button type="button" class="btn-close" aria-label="Close" (click)="offcanvas.dismiss('Cross click')"></button>
 	</div>
 	<div class="offcanvas-body">
+		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			<li class="nav-item">
+				<a class="nav-link" aria-current="page" [routerLink]="'/'" routerLinkActive="active">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" [routerLink]="'/menu/'" routerLinkActive="active">Menu</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" [routerLink]="'/menu/item'">Menu Item</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+			</li>
+		</ul>
 		<form>
 			<div class="mb-3">
 				<label for="dateOfBirth">Date of birth</label>
 				<div class="input-group">
-					<input
-						id="dateOfBirth"
-						class="form-control"
-						placeholder="yyyy-mm-dd"
-						name="dp"
-						ngbDatepicker
-						#dp="ngbDatepicker"
-					/>
-					<button class="btn btn-outline-secondary bi bi-calendar3" (click)="dp.toggle()" type="button"></button>
+					<input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker
+						#dp="ngbDatepicker" />
+					<button class="btn btn-outline-secondary bi bi-calendar3" (click)="dp.toggle()"
+						type="button"></button>
 				</div>
 			</div>
 		</form>
 		<div class="text-end">
-			<button type="button" class="btn btn-outline-secondary" (click)="offcanvas.close('Save click')">Save</button>
+			<button type="button" class="btn btn-outline-secondary"
+				(click)="offcanvas.close('Save click')">Save</button>
 		</div>
 	</div>
 </ng-template>
