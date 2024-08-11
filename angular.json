@@ -29,7 +29,8 @@
               "src/favicon.ico",
               "src/assets",
               "src/WEB-INF",
-              "src/manifest.webmanifest"
+              "src/manifest.webmanifest",
+              "src/.htaccess"
             ],
             "styles": [
               "src/styles.scss"
