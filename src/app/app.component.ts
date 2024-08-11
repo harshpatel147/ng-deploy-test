@@ -32,17 +32,27 @@ export class AppComponent implements OnInit {
       }
     });
 
-    const appIsStable$ = this.appRef.isStable.pipe(first(isStable => isStable === true));
-    const everyTenSeconds$ = interval(120 * 1000); // 2 minutes in miliseconds
-    const everyTenSecondsOnceAppIsStable = concat(appIsStable$, everyTenSeconds$);
+    // const appIsStable$ = this.appRef.isStable.pipe(first(isStable => isStable === true));
+    // const everyTenSeconds$ = interval(120 * 1000); // 2 minutes in miliseconds
+    // const everyTenSecondsOnceAppIsStable = concat(appIsStable$, everyTenSeconds$);
 
-    everyTenSecondsOnceAppIsStable.subscribe(async () => {
-      try {
-        const updateFound = await this.swUpdate.checkForUpdate();
-        console.log(updateFound ? "A new Version is available." : "Already on the latest version.")
-      } catch (err){
-        console.error('Failed to check for updates', err);
-      }
-    });
+    // everyTenSecondsOnceAppIsStable.subscribe(async () => {
+    //   try {
+    //     const updateFound = await this.swUpdate.checkForUpdate();
+    //     console.log(updateFound ? "A new Version is available." : "Already on the latest version.")
+    //   } catch (err){
+    //     console.error('Failed to check for updates', err);
+    //   }
+    // });
+  }
+
+  async checkForUpdate() {
+    console.log("check for update clicked");
+    try {
+      const updateFound = await this.swUpdate.checkForUpdate();
+      console.log(updateFound ? "A new Version is available." : "Already on the latest version.")
+    } catch (err){
+      console.error('Failed to check for updates', err);
+    }
   }
 }

@@ -1,11 +1,11 @@
 RewriteEngine On
 
 # Set Cache-Control header for index.html
-<IfModule mod_headers.c>
-  <Files "index.html">
-    Header set Cache-Control "no-cache, no-store, must-revalidate"
-  </Files>
-</IfModule>
+#<IfModule mod_headers.c>
+#  <Files "index.html">
+#    Header set Cache-Control "no-cache, no-store, must-revalidate"
+#  </Files>
+#</IfModule>
 
 # If an existing asset or directory is requested go to it as it is
 RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
